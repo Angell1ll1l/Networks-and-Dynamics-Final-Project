@@ -64,3 +64,8 @@ Attribution, license, and adaptation notes are recorded in:
 - `paper_source_code/FourOscModel/SOURCE.md`
 - `paper_source_code/FourOscModel/LICENSE`
 - `paper_source_code/FourOscModel/README.original.md`
+
+## Requirement Cross-Check
+
+For a requirement-by-requirement mapping to repository files, see:
+- `REPRODUCIBILITY_CHECKLIST.md`
