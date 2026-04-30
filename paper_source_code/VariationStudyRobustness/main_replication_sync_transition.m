@@ -5,6 +5,11 @@
 
 clear; clc; close all;
 rng(2);
+projectRoot = fileparts(fileparts(fileparts(mfilename('fullpath'))));
+figDir = fullfile(projectRoot, 'figures');
+if ~exist(figDir, 'dir')
+    mkdir(figDir);
+end
 
 %% Simulation settings
 T = 12;
@@ -57,6 +62,8 @@ end
 
 [max_sync, max_idx] = max(sync_mean);
 max_coupling = coupling_values(max_idx);
+summaryText = sprintf('Threshold %.2f first reached at g = %.2f\nMax sync = %.3f at g = %.2f\nTrials per point = %d', ...
+    threshold, threshold_coupling, max_sync, max_coupling, nTrials);
 
 %% Plot with numerical summary inside figure
 figure('Color','w', 'Position', [100 100 850 550]);
@@ -78,3 +85,4 @@ text(2, 0.18, summaryText, ...
     'FontSize', 11, ...
     'BackgroundColor', 'white', ...
     'EdgeColor', 'black');
+saveas(gcf, fullfile(figDir, 'figure_replication_sync_transition.png'));

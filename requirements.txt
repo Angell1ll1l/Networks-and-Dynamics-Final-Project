@@ -1,0 +1,6 @@
+MATLAB>=R2022b
+
+# Notes
+# - This project is MATLAB-based (no Python package dependencies required).
+# - Scripts rely on standard MATLAB functionality used in the original and adapted code.
+# - A desktop MATLAB installation is recommended for figure rendering and export.

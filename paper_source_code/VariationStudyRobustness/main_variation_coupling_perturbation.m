@@ -10,6 +10,11 @@
 
 clear; clc; close all;
 rng(4);
+projectRoot = fileparts(fileparts(fileparts(mfilename('fullpath'))));
+figDir = fullfile(projectRoot, 'figures');
+if ~exist(figDir, 'dir')
+    mkdir(figDir);
+end
 
 %% Author-style settings
 N = 4;
@@ -173,6 +178,7 @@ for c = 1:nCond
 end
 
 sgtitle('Coupling-parameter perturbation of synchronization strategies');
+saveas(gcf, fullfile(figDir, 'figure_variation_coupling_perturbation_scores.png'));
 
 %% Optional second figure: lag values at alpha = 0.5, 1.0, 1.5
 selectedAlphas = [0.5, 1.0, 1.5];
@@ -215,6 +221,7 @@ for c = 1:nCond
 end
 
 sgtitle('Lag-pattern examples under coupling perturbation');
+saveas(gcf, fullfile(figDir, 'figure_variation_coupling_perturbation_lags.png'));
 
 %% Local functions
 

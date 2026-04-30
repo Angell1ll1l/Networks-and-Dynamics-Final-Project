@@ -10,6 +10,11 @@
 
 clear; clc; close all;
 rng(5);
+projectRoot = fileparts(fileparts(fileparts(mfilename('fullpath'))));
+figDir = fullfile(projectRoot, 'figures');
+if ~exist(figDir, 'dir')
+    mkdir(figDir);
+end
 
 %% Shared settings
 N = 4;
@@ -141,6 +146,7 @@ text(xl(1)+0.58*(xl(2)-xl(1)), yl(1)+0.78*(yl(2)-yl(1)), txt, ...
 end
 
 sgtitle('Numerical step-size sensitivity');
+saveas(gcf, fullfile(figDir, 'figure_variation_step_sensitivity.png'));
 
 %% Plot time-horizon sensitivity
 figure('Color','w', 'Position', [100 100 1300 450]);
@@ -165,6 +171,7 @@ text(xl(1)+0.58*(xl(2)-xl(1)), yl(1)+0.78*(yl(2)-yl(1)), txt, ...
 end
 
 sgtitle('Time-horizon sensitivity');
+saveas(gcf, fullfile(figDir, 'figure_variation_time_sensitivity.png'));
 
 %% Local functions
 

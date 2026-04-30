@@ -7,6 +7,11 @@
 
 clear; clc; close all;
 rng(3);
+projectRoot = fileparts(fileparts(fileparts(mfilename('fullpath'))));
+figDir = fullfile(projectRoot, 'figures');
+if ~exist(figDir, 'dir')
+    mkdir(figDir);
+end
 
 %% Author-style settings
 N = 4;
@@ -110,13 +115,14 @@ for c = 1:nCond
     txt = sprintf('At %d ms:\nlag -1 = %.3f\nlag 0 = %.3f\nlag +1 = %.3f', ...
         noiseLevels(end), m1(end), m0(end), p1(end));
 
-    text(noiseLevels(1)+2, -0.20, txt, ...
-        'FontSize', 9, ...
-        'BackgroundColor', 'white', ...
-        'EdgeColor', 'black');
+    text(noiseLevels(end)-24, -0.20, txt, ...
+    'FontSize', 9, ...
+    'BackgroundColor', 'white', ...
+    'EdgeColor', 'black');
 end
 
 sgtitle('Noise sensitivity of lag-correlation patterns');
+saveas(gcf, fullfile(figDir, 'figure_variation_noise_sweep.png'));
 
 %% Local functions
 function r = local_lag_corr_author_order(x, y)

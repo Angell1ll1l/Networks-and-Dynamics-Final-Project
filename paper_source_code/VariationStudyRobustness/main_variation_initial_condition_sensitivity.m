@@ -10,6 +10,11 @@
 % the seed changes the initial phase configuration and random perturbations.
 
 clear; clc; close all;
+projectRoot = fileparts(fileparts(fileparts(mfilename('fullpath'))));
+figDir = fullfile(projectRoot, 'figures');
+if ~exist(figDir, 'dir')
+    mkdir(figDir);
+end
 
 %% Author-style settings
 N = 4;
@@ -130,6 +135,7 @@ for c = 1:nCond
 end
 
 sgtitle('Initial-condition sensitivity of lag-correlation patterns');
+saveas(gcf, fullfile(figDir, 'figure_variation_initial_condition_sensitivity.png'));
 
 %% Local functions
 function r = local_lag_corr_author_order(x, y)

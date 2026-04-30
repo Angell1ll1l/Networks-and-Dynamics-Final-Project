@@ -4,6 +4,11 @@
 
 clear; clc; close all;
 rng(1);
+projectRoot = fileparts(fileparts(fileparts(mfilename('fullpath'))));
+figDir = fullfile(projectRoot, 'figures');
+if ~exist(figDir, 'dir')
+    mkdir(figDir);
+end
 
 %% Settings copied from author's FourOscModel.m style
 N = 4;
@@ -98,6 +103,7 @@ for c = 1:size(conditions,1)
 end
 
 sgtitle('Replicated lag-correlation patterns from Table 1 coupling weights');
+saveas(gcf, fullfile(figDir, 'figure_table1_author_style.png'));
 
 %% Local function
 function r = local_lag_corr_author_order(x, y)

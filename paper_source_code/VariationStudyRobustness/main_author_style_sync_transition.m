@@ -3,6 +3,11 @@
 
 clear; clc; close all;
 rng(2);
+projectRoot = fileparts(fileparts(fileparts(mfilename('fullpath'))));
+figDir = fullfile(projectRoot, 'figures');
+if ~exist(figDir, 'dir')
+    mkdir(figDir);
+end
 
 %% Author-style settings
 N = 4;
@@ -96,6 +101,7 @@ text(1.2, 0.18, summaryText, ...
     'FontSize', 11, ...
     'BackgroundColor', 'white', ...
     'EdgeColor', 'black');
+saveas(gcf, fullfile(figDir, 'figure_sync_transition_author_style.png'));
 
 %% Local function
 function S = sync_index_author_style(theta1, theta2)

@@ -6,6 +6,11 @@
 
 clear; clc; close all;
 rng(1);
+projectRoot = fileparts(fileparts(fileparts(mfilename('fullpath'))));
+figDir = fullfile(projectRoot, 'figures');
+if ~exist(figDir, 'dir')
+    mkdir(figDir);
+end
 
 %% Simulation settings
 T = 12;              % total simulation time in seconds
@@ -84,3 +89,4 @@ for c = 1:size(conditions,1)
 end
 
 sgtitle('Replicated lag-correlation patterns from Table 1 coupling weights');
+saveas(gcf, fullfile(figDir, 'figure_replication_baseline.png'));
