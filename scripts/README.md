@@ -6,17 +6,17 @@ This document maps each script to the result it reproduces.
 
 - `reproduce_core_results.m`
   - Runs baseline replication scripts:
-    - `main_author_style_table1.m` -> Table-1-style lag-correlation patterns (`figures/figure_table1_author_style.png`)
-    - `main_author_style_sync_transition.m` -> synchronization transition curve (`figures/figure_sync_transition_author_style.png`)
+    - `main_author_style_table1.m` -> Table-1-style lag-correlation patterns (`figures/figure_table1_author_style_Figure1.png`)
+    - `main_author_style_sync_transition.m` -> synchronization transition curve (`figures/figure_sync_transition_author_style_Figure2.png`)
     - `main_replication_baseline.m` -> baseline lag-correlation replication (`figures/figure_replication_baseline.png`)
     - `main_replication_sync_transition.m` -> baseline transition replication (`figures/figure_replication_sync_transition.png`)
 
 - `reproduce_variation_results.m`
   - Runs robustness scripts:
-    - `main_variation_noise_sweep.m` -> noise sensitivity (`figures/figure_variation_noise_sweep.png`)
-    - `main_variation_initial_condition_sensitivity.m` -> seed/initial-condition sensitivity (`figures/figure_variation_initial_condition_sensitivity.png`)
-    - `main_variation_coupling_perturbation.m` -> coupling perturbation diagnostics and lag examples (`figures/figure_variation_coupling_perturbation_scores.png`, `figures/figure_variation_coupling_perturbation_lags.png`)
-    - `main_variation_numerical_sensitivity.m` -> numerical sensitivity (dt and T) (`figures/figure_variation_step_sensitivity.png`, `figures/figure_variation_time_sensitivity.png`)
+    - `main_variation_noise_sweep.m` -> noise sensitivity (`figures/figure_variation_noise_sweep_Figure3.png`)
+    - `main_variation_initial_condition_sensitivity.m` -> seed/initial-condition sensitivity (`figures/figure_variation_initial_condition_sensitivity_Figure4.png`)
+    - `main_variation_coupling_perturbation.m` -> coupling perturbation diagnostics and lag examples (`figures/figure_variation_coupling_perturbation_scores_Figure5.png`, `figures/figure_variation_coupling_perturbation_lags_Figure6.png`)
+    - `main_variation_numerical_sensitivity.m` -> numerical sensitivity (dt and T) (`figures/figure_variation_step_sensitivity_Figure7.png`, `figures/figure_variation_time_sensitivity_Figure8.png`)
 
 - `reproduce_all.m`
   - Runs both suites above in sequence.
@@ -25,3 +25,4 @@ This document maps each script to the result it reproduces.
 
 - The scripts use only simulated data from the model.
 - All exported figures are written to `figures/` automatically by the corresponding `main_*.m` files.
+- Some scripts may also emit default non-suffixed filenames (for example `figure_variation_step_sensitivity.png`) if rerun directly; the `_FigureX` files are the PDF-aligned canonical names used for submission cross-check.
